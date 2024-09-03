@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block body %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-5 col-4">
+                        <h4 class="page-title">Invoices</h4>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Invoice Number</th>
+                                        <th>Patient</th>
+                                        <th>Bill Date</th>
+                                        <th>Bill Time</th>
+                             
+                                        <th>discharge date</th>
+                                     
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for i in bills %}
+                                    <tr>
+                                        <td>{{i['billingid']}}</td>
+                                        <td><a href="/invoicesbill/{{i['billingid']}}">#INV-000{{i['billingid']}}</a></td>
+                                        <td>{{i['patientname']}}</td>
+                                        <td>{{i['billingdate']}}</td>
+                                        <td>{{i['billingtime']}}</td>
+                                     
+                                        <td>{{i['discharge_date']}}</td>
+                                    </tr>
+                                    {%endfor%}
+									
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+		<div id="delete_invoice" class="modal fade delete-modal" role="dialog">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<img src="assets/img/sent.png" alt="" width="50" height="46">
+						<h3>Are you sure want to delete this Invoice?</h3>
+						<div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

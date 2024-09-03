@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 2</title>
+    <link rel="stylesheet" href="../../static/assets/css/style_invoice.css" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+
+      <div id="company">
+        <h2 class="name">Hospital</h2>
+
+        
+      </div>
+      </div>
+    </header>
+    <main>
+      <div id="details" class="clearfix">
+        <div id="client">
+          <div class="to">INVOICE TO:</div>
+          <h2 class="name">{{row['patientname']}}</h2>
+          
+        <div id="invoice">
+          <h1>INVOICE</h1>
+          <div class="date">Date of Invoice: {{row['billingdate']}}</div>
+      </div>
+      <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th class="no">#</th>
+            <th class="desc">DESCRIPTION</th>
+            <th class="total">TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="no">01</td>
+            <td class="desc"><h3>Doctor Consultancy Charges</h3></td>
+
+            <td class="total">{{doctor['consultancy_charge']}}</td>
+          </tr>
+          <tr>
+            <td class="no">02</td>
+            <td class="desc"><h3>OT/OPD Charges</h3>
+
+            <td class="total">5000</td>
+          </tr>
+          <tr>
+            <td class="no">03</td>
+            <td class="desc"><h3>Medical</h3></td>
+            <td class="total">{{medical}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+          <tr>
+            <td colspan="1"></td>
+            <td colspan="1">TAX {{tax}}%</td>
+            <td>{{taxamt}}</td>
+          </tr>
+          <tr>
+            <td colspan="1"></td>
+            <td colspan="1">GRAND TOTAL</td>
+            <td>{{grand}}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="thanks">Thank you!</div>
+ 
+    </main>
+    <div>
+      Invoice was created on a computer and is valid without the signature and seal.
+    </div>
+  </body>
+</html>

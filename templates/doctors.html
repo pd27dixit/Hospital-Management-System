@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Doctors</h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a href="/add_doctor" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
+                    </div>
+                </div>
+                
+				<div class="row doctor-grid">
+                    {% for row in doctor %}
+                    <div class="col-md-4 col-sm-4  col-lg-3">
+                        <div class="profile-widget">
+                            <div class="doctor-img">
+                                <!-- <a class="avatar" href="#"><img src="{{url_for('static', filename='12.jpg')}}"></a> -->
+                            </div>
+                            <div class="dropdown profile-action">
+                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="/deletedoctor/{{row['doctorid']}}" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                </div>
+                            </div>
+                            <h4 class="doctor-name text-ellipsis"; style="text-align: center; position:absolute; top:40px; left:60px";><a>{{row['doctorname']}}</a></h4>
+                            <div class="doc-prof"; style="text-align: center;
+                            vertical-align: middle; position:absolute; top:60px; left:60px">{{row['education']}}</div>
+                            <!-- <div class="user-country">
+                                <i class="fa fa-phone-square" aria-hidden="true"></i> <span>{{row['mobileno']}}</span>
+                            </div> -->
+
+                            <div class="user-country"; style="text-align: center;
+                            vertical-align: middle; position:absolute; top:80px; left:60px">{{row['mobileno']}}</div>
+                        </div>
+                        
+                    </div>
+                    
+                    {%endfor%}
+                    </div>
+                    
+				
+            </div>
+        </div>
+		
+    </div>
+    {% endblock %}
+    {% block foot %}
+    {% endblock %}

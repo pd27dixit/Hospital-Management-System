@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Schedule</h4>
+                    </div>
+                   
+                </div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-border table-striped custom-table mb-0">
+								<thead>
+									<tr>
+										<th>Doctor Name</th>
+										<th>Department</th>
+										<th>Available Time</th>
+										<th >Status</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+                                    {% for row in schedule %}
+									<tr>
+										<td><img width="28" height="28" src="{{url_for('static', filename='12.jpg')}}" class="rounded-circle m-r-5" alt="">{{row['doctorname']}}</td>
+										<td>{{row['departmentname']}}</td>
+										
+										<td>{{row['start_time']}} - {{row['end_time']}}</td>
+                                        {% if now > row['end_time'] or row['status'] =="Inactive" %}
+                                            <td><span class="custom-badge status-red">Inactive</span></td>
+                                        {% elif now > row['start_time']%}
+										    <td><span class="custom-badge status-green">Active</span></td>
+                                        {% else%}
+                                            <td><span class="custom-badge status-red">Inactive</span></td>
+                                        {%endif%}
+										
+									</tr>
+                                    {%endfor%}
+                                    
+								</tbody>
+							</table>
+						</div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    {% endblock %}
